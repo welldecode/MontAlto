@@ -1,7 +1,7 @@
 <div>
 
     @section('css')
-        <link rel="stylesheet" href="/assets/css/oportunidades.css">
+        <link rel="stylesheet" href="/public/assets/css/oportunidades.css">
     @endsection
   <main>
     <article>

@@ -1,7 +1,7 @@
 <div>
 
     @section('css')
-        <link rel="stylesheet" href="/assets/css/quem-somos.css">
+        <link rel="stylesheet" href="/public/assets/css/quem-somos.css">
     @endsection
     <main>
         <article>
@@ -56,15 +56,15 @@
                         <div class="info-visual">
                             <div class="car-showcase">
                                 <div class="car-card">
-                                    <img src="/assets/images/car-1.jpg" alt="Carro econômico">
+                                    <img src="/public/assets/images/car-1.jpg" alt="Carro econômico">
                                     <span class="car-type">Econômico</span>
                                 </div>
                                 <div class="car-card">
-                                    <img src="/assets/images/car-2.jpg" alt="SUV">
+                                    <img src="/public/assets/images/car-2.jpg" alt="SUV">
                                     <span class="car-type">SUV</span>
                                 </div>
                                 <div class="car-card">
-                                    <img src="/assets/images/car-3.jpg" alt="Sedan">
+                                    <img src="/public/assets/images/car-3.jpg" alt="Sedan">
                                     <span class="car-type">Sedan</span>
                                 </div>
                             </div>
@@ -203,7 +203,7 @@
                                 <ion-icon name="car"></ion-icon>
                                 Fazer Reserva
                             </a>
-                            <a href="./contato.html" class="btn-secondary">
+                            <a href="{{ route('contato') }}" class="btn-secondary">
                                 <ion-icon name="call"></ion-icon>
                                 Falar Conosco
                             </a>

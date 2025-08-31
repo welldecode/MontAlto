@@ -1,7 +1,7 @@
 <div>
     @section('css')
-        <link rel="stylesheet" href="/assets/css/frotas-tarifas.css">
-        <link rel="stylesheet" href="/assets/css/reserva.css">
+        <link rel="stylesheet" href="/public/assets/css/frotas-tarifas.css">
+        <link rel="stylesheet" href="/public/assets/css/reserva.css">
     @endsection
     <main>
         <article>

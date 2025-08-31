@@ -29,7 +29,7 @@
             <div class="overlay" data-overlay></div>
 
             <a href="#" class="logo">
-                <img src="/assets/images/logo.png" class="w-135" alt="Montalvo Logo">
+                <img src="/public/assets/images/logo.png" class="w-135" alt="Montalvo Logo">
             </a>
 
             <nav class="navbar" data-navbar>
@@ -84,7 +84,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <img src="/assets/images/logo-light.png" class="w-135" alt="Montalvo Logo">
+                        <img src="/public/assets/images/logo-light.png" class="w-135" alt="Montalvo Logo">
                     </a>
                     <p class="footer-text">
                         Sua melhor escolha em aluguel de veículos. Qualidade, confiança e excelência em cada viagem.
