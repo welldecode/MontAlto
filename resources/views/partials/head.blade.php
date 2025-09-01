@@ -10,5 +10,7 @@
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
-@vite(['resources/css/app.css', 'resources/js/app.js'])
+<link rel="stylesheet" href="/public/build/assets/app-BjO4InKt.css?<?php echo time(); ?>">
+<script type="module" src="/public/build/assets/app-Cs_RZkjq.js?<?php echo time(); ?>"></script>
+<!--@vite(['resources/css/app.css', 'resources/js/app.js'])-->
 @fluxAppearance

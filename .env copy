@@ -1,8 +1,8 @@
 APP_NAME=MontAlto
 APP_ENV=production
-APP_KEY=base64:xcUPWQr+QG1shcpeLalh0lkPzGP5XELkoUzc0IJdOJI=
 APP_DEBUG=true
-APP_URL=https://clubstep.com.br/public
+APP_KEY=base64:xcUPWQr+QG1shcpeLalh0lkPzGP5XELkoUzc0IJdOJI=
+APP_URL=https://clubstep.com.br
 
 APP_LOCALE=pt_BR
 APP_FALLBACK_LOCALE=pt_BR

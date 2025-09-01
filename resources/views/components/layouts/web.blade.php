@@ -6,17 +6,7 @@
 </head>
 
 <body class="min-h-screen bg-white dark:bg-zinc-800">
-
-    <!--
-    - #LOADING
-  -->
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <div class="loader-text">Carregando...</div>
-            <div class="loader-subtext">Preparando sua experiência</div>
-        </div>
-    </div>
+ 
 
 
     <!--

@@ -1,6 +1,5 @@
 'use strict';
- 
-import './loading.js'; 
+  
 import './view-toggle.js';  
 import './seminovos.js';  
 import './frotas-tarifas.js';  

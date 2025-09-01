@@ -8,17 +8,17 @@
             <h1
                 class="text-3xl font-semibold text-zinc-700 dark:text-zinc-100 mb-10 animate__animated animate__fadeInDown">
                 Produtos</h1>
-
-    <livewire:admin.components.dynamic-table 
-    :model="\App\Models\Product::class" 
+                <flux:button variant="primary" class="mb-10" href="{{ route('admin.product.create') }}">Novo Produto</flux:button>
+    <livewire:admin.components.dynamic-table
+    :model="\App\Models\Product::class"
     :columns="[
         'id' => 'ID',
         'name' => 'Nome',
         'description' => 'Descrição',
         'features' => 'Características',
-    ]" 
+    ]"
     editRoute="admin.product.edit"
-    :editParam="['id' => 'id']"  
+    :editParam="['id' => 'id']"
 />
         </section>
     </div>
