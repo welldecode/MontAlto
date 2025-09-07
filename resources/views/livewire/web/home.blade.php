@@ -111,24 +111,20 @@
                                                     <ion-icon name="flash-outline"></ion-icon>
                                                     <span class="card-item-text">{{ $product->features['tipo'] }}</span>
                                                 </li>
-                                            @endif 
+                                            @endif
                                         </ul>
 
                                         {{-- Preços --}}
                                         <div class="card-price-wrapper">
                                             <p class="card-price">
-                                                <strong>R${{ $product->prices['Mensal'] ?? '---' }}</strong> / mês
+                                                <strong>R${{ $product->price['Mensal'] ?? '---' }}</strong> / mês
                                             </p>
 
                                             <div class="card-actions">
-                                                <button class="btn-pricing" data-car="{{ Str::slug($product->name) }}"
-                                                    data-daily="{{ $product->prices['Diária'] ?? 0 }}"
-                                                    data-weekly="{{ $product->prices['Semanal'] ?? 0 }}"
-                                                    data-biweekly="{{ $product->prices['Quinzenal'] ?? 0 }}"
-                                                    data-monthly="{{ $product->prices['Mensal'] ?? 0 }}">
+                                                <a href="{{ route('reserva')}}" class="btn-pricing" >
                                                     <ion-icon name="pricetag-outline"></ion-icon>
-                                                    Ver Valores
-                                                </button>
+                                                    Reservar
+                                                </a>
                                             </div>
                                         </div>
 
@@ -142,7 +138,7 @@
                 </div>
             </section>
 
-              <!-- 
+              <!--
         - #WHY CHOOSE US
       -->
 
@@ -218,7 +214,7 @@
         </div>
       </section>
 
-<!-- 
+<!--
         - #SOCIAL BAR
       -->
 
@@ -242,7 +238,7 @@
 
 
 
-      <!-- 
+      <!--
         - #GET START
       -->
 

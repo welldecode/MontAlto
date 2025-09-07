@@ -1,7 +1,7 @@
 <div>
 
     @section('css')
-        <link rel="stylesheet" href="/public/assets/css/oportunidades.css">
+        <link rel="stylesheet" href="/assets/css/oportunidades.css">
     @endsection
   <main>
     <article>
@@ -28,7 +28,7 @@
       <section class="por-que-trabalhar">
         <div class="container">
           <h2 class="section-title">Por que trabalhar na Montalvo?</h2>
-          
+
           <div class="beneficios-grid">
             <div class="beneficio-card">
               <div class="card-icon">
@@ -69,7 +69,7 @@
       <section class="vagas-disponiveis">
         <div class="container">
           <h2 class="section-title">Vagas Disponíveis</h2>
-          
+
           <div class="vagas-lista">
             <div class="vaga-card">
               <div class="vaga-header">
@@ -91,7 +91,7 @@
                 </div>
               </div>
               <p class="vaga-descricao">
-                Buscamos profissional proativo para atendimento ao cliente, vendas e locação de veículos. 
+                Buscamos profissional proativo para atendimento ao cliente, vendas e locação de veículos.
                 Experiência em vendas será um diferencial.
               </p>
               <div class="vaga-requisitos">
@@ -126,7 +126,7 @@
                 </div>
               </div>
               <p class="vaga-descricao">
-                Profissional para manutenção preventiva e corretiva da frota de veículos. 
+                Profissional para manutenção preventiva e corretiva da frota de veículos.
                 Experiência comprovada em mecânica automotiva.
               </p>
               <div class="vaga-requisitos">
@@ -161,7 +161,7 @@
                 </div>
               </div>
               <p class="vaga-descricao">
-                Profissional para apoio administrativo, controle de documentos, atendimento telefônico 
+                Profissional para apoio administrativo, controle de documentos, atendimento telefônico
                 e suporte às operações da empresa.
               </p>
               <div class="vaga-requisitos">
@@ -183,7 +183,7 @@
       <section class="processo-seletivo">
         <div class="container">
           <h2 class="section-title">Como funciona nosso processo seletivo</h2>
-          
+
           <div class="processo-steps">
             <div class="step-item">
               <div class="step-number">1</div>
@@ -226,7 +226,7 @@
           <div class="form-container">
             <h2 class="section-title">Candidate-se Agora</h2>
             <p class="form-subtitle">Não encontrou a vaga ideal? Envie seu currículo e entraremos em contato quando surgir uma oportunidade para seu perfil.</p>
-            
+
             <form wire:submit="save"  class="candidatura-form">
               <div class="form-grid">
                 <div class="input-group">

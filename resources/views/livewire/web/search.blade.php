@@ -1,7 +1,7 @@
 <div>
     @section('css')
-        <link rel="stylesheet" href="/public/assets/css/seminovos.css">
-        <link rel="stylesheet" href="/public/assets/css/frotas-tarifas.css">
+        <link rel="stylesheet" href="/assets/css/seminovos.css">
+        <link rel="stylesheet" href="/assets/css/frotas-tarifas.css">
     @endsection
     <main>
         <article>
@@ -22,13 +22,13 @@
             </section>
 
       <section class="section featured-car" >
-                <div class="container"> 
+                <div class="container">
 
                     <div class="title-wrapper">
-                       
+
                     </div>
                     <ul class="featured-car-list">
-                          @foreach ($carros as $index => $product) 
+                          @foreach ($carros as $index => $product)
                             <li>
                                 <div class="featured-car-card">
 
@@ -43,9 +43,9 @@
 
                                         {{-- Nome + Ano --}}
                                         <div class="card-title-wrapper">
-                                            
-                                               {{ $product->name }} 
-                                        
+
+                                               {{ $product->name }}
+
 
                                             <data class="year"
                                                 value="{{ $product->year }}">{{ $product->year }}</data>
@@ -66,7 +66,7 @@
                                                     <ion-icon name="flash-outline"></ion-icon>
                                                     <span class="card-item-text">{{ $product->features['tipo'] }}</span>
                                                 </li>
-                                            @endif 
+                                            @endif
                                         </ul>
 
                                         {{-- Preços --}}
@@ -96,7 +96,7 @@
 
                 </div>
             </section>
- 
+
         </article>
     </main>
 

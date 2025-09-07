@@ -1,7 +1,13 @@
+
+
+
+
+
 <div>
     @section('css')
-        <link rel="stylesheet" href="/public/assets/css/frotas-tarifas.css">
-        <link rel="stylesheet" href="/public/assets/css/reserva.css">
+        <link rel="stylesheet" href="/assets/css/frotas-tarifas.css"/>
+        <link rel="stylesheet" href="/assets/css/seminovos.css"/>
+        <link rel="stylesheet" href="/assets/css/reserva.css"/>
     @endsection
     <main>
         <article>
@@ -86,38 +92,27 @@
             </section>
 
 
-            <!-- FROTA GRID -->
-            <section class="frota-grid">
+
+            <!-- LISTA DE SEMINOVOS -->
+            <section class="seminovos-lista">
                 <div class="container">
-                    <div class="grid-header">
-                        <h2 class="section-title">Escolha seu Veículo</h2>
-                        <div class="view-toggle">
-                            <button class="view-btn active" data-view="grid">
-                                <ion-icon name="grid-outline"></ion-icon>
-                            </button>
-                            <button class="view-btn" data-view="list">
-                                <ion-icon name="list-outline"></ion-icon>
-                            </button>
-                        </div>
-                    </div>
-                    <div   x-transition:enter="transition ease-out duration-300"
+                    <div class="seminovos-grid" x-transition:enter="transition ease-out duration-300"
                         x-transition:enter-start="opacity-0 transform scale-95"
                         x-transition:enter-end="opacity-100 transform scale-100"
                         x-transition:leave="transition ease-in duration-200"
                         x-transition:leave-start="opacity-100 transform scale-100"
-                        x-transition:leave-end="opacity-0 transform scale-95" class="vehicles-grid" id="vehicles-container">
+                        x-transition:leave-end="opacity-0 transform scale-95">
                         @forelse ($cars as $index => $car)
-                        
-                                        <!-- Informações do carro -->
-                                        @php
-                                            $features = is_array($car->features)
-                                                ? $car->features
-                                                : json_decode($car->features, true);
-                                        @endphp
                             <div wire:key="car-{{ $car->id }}" x-data="{ visible: false }" x-init="setTimeout(() => visible = true, {{ $index * 100 }})"
-                                :class="visible ? 'fade-up show vehicle-card' : 'fade-up vehicle-card'"
-                                data-category="{{ ucfirst($features['categoria']) ?? 'Não informado' }}">
-                                <div class="card-image">
+                                :class="visible ? 'fade-up show seminovo-card' : 'fade-up seminovo-card'"
+                                data-image="{{ $car->main_image }}" data-title="{{ $car->name }}"
+                                data-specs="{{ $car->espaco }} | {{ $car->tipo ?? 'Não informado' }}"
+                                data-daily="{{ $car->price['Diária'] ?? 'Consulte' }}"
+                                data-weekly="{{ $car->price['Semanal'] ?? 'Consulte' }}"
+                                data-biweekly="{{ $car->price['Quinzenal'] ?? 'Consulte' }}"
+                                data-monthly="{{ $car->price['Mensal'] ?? 'Consulte' }}">
+                                <div class="card-banner">
+                                    <!-- Imagem principal -->
                                     @php
                                         $images = is_array($car->images)
                                             ? $car->images
@@ -125,36 +120,61 @@
                                     @endphp
                                     <img src="{{ $car->main_image }}" alt="{{ $car->name }}">
 
-                                    <div class="card-overlay">
-                                        <button class="btn-quick-view">Ver Detalhes</button>
-                                    </div>
+                                    <div class="card-badge">{{ $car->year ?? '-' }}</div>
                                 </div>
+
                                 <div class="card-content">
-                                    <h3 class="card-title">{{ $car->name }}</h3>
-                                    <div class="card-specs">
- 
-                                        <span><ion-icon name="people-outline"></ion-icon>{{ $car->espaco }}</span>
-                                        <span><ion-icon
-                                                name="speedometer-outline"></ion-icon>{{ ucfirst($features['categoria']) ?? 'Não informado' }}</span>
-                                        <span><ion-icon
-                                                name="leaf-outline"></ion-icon>{{ ucfirst($features['tipo']) ?? 'Não informado' }}</span>
-                                    </div>
-                                    <div class="card-price">
-                                        <span class="price-label">A partir de</span> <!-- Preço escolhido -->
+                                    <div class="card-header">
+                                        <h3 class="card-title">{{ $car->name }}</h3>
+
+                                        <!-- Preço escolhido -->
                                         @php
                                             $prices = is_array($car->price)
                                                 ? $car->price
                                                 : json_decode($car->price, true);
-                                            $priceValue = $prices['Diária'] ?? null;
+                                            $priceValue = $prices[$precoTipo] ?? null;
                                         @endphp
-                                        @if ($priceValue)
-                                            <span class="card-price-value">R$
-                                                {{ number_format($priceValue, 2, ',', '.') }}<small>/dia</small></span>
-                                        @else
-                                            Consulte
-                                        @endif
+                                        <div class="card-price">
+                                            @if ($priceValue)
+                                                R$ {{ number_format($priceValue, 2, ',', '.') }}
+                                            @else
+                                                Consulte
+                                            @endif
+                                        </div>
                                     </div>
-                                    <button class="btn-reserve">Reservar Agora</button>
+
+                                    <!-- Informações do carro -->
+                                    @php
+                                        $features = is_array($car->features)
+                                            ? $car->features
+                                            : json_decode($car->features, true);
+                                    @endphp
+                                    <div class="card-info">
+                                        <div class="info-item">
+                                            <ion-icon name="people-outline"></ion-icon>
+                                            <span>{{ $car->espaco }}</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <ion-icon name="car-outline"></ion-icon>
+                                            <span>{{ ucfirst($features['categoria']) ?? 'Não informado' }}</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <ion-icon name="flash-outline"></ion-icon>
+                                            <span>{{ $features['tipo'] ?? '-' }}</span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="card-actions">
+                                        <button class="btn-valores">
+                                            <ion-icon name="pricetag-outline"></ion-icon>
+                                            Ver Valores
+                                        </button>
+                                        <button class="btn-contato">
+                                            <ion-icon name="call-outline"></ion-icon>
+                                            Contato
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -168,41 +188,8 @@
                     </div>
                 </div>
             </section>
+        </article>
 
-
-
-            <!-- TARIFAS ESPECIAIS -->
-            <section class="tarifas-especiais">
-                <div class="container">
-                    <h2 class="section-title center">Tarifas Especiais</h2>
-                    <div class="tarifas-grid">
-                        <div class="tarifa-card">
-                            <div class="tarifa-icon">
-                                <ion-icon name="calendar-outline"></ion-icon>
-                            </div>
-                            <h3>Diária Semanal</h3>
-                            <p>Alugue por 7 dias e ganhe desconto especial em toda nossa frota</p>
-                            <div class="desconto">15% OFF</div>
-                        </div>
-                        <div class="tarifa-card">
-                            <div class="tarifa-icon">
-                                <ion-icon name="business-outline"></ion-icon>
-                            </div>
-                            <h3>Corporativo</h3>
-                            <p>Condições especiais para empresas com gestão completa de frotas</p>
-                            <div class="desconto">20% OFF</div>
-                        </div>
-                        <div class="tarifa-card">
-                            <div class="tarifa-icon">
-                                <ion-icon name="heart-outline"></ion-icon>
-                            </div>
-                            <h3>Fidelidade</h3>
-                            <p>Benefícios exclusivos para clientes frequentes e programa de pontos</p>
-                            <div class="desconto">Até 25% OFF</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <!-- CONTACT CTA -->
             <section class="contact-cta">

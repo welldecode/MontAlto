@@ -3,9 +3,8 @@
     <h3 class="text-xl font-semibold tracking-wide mb-5 text-accent animate__animated animate__fadeInDown">
         {{ __('Advanced Filters') }}</h3>
     {{-- Seletor de colunas --}}
-    <div x-data="dataTableComponent()" class="relative inline-block text-left mb-4 animate__animated animate__fadeInDown  z-50">
-        <button @click="open = !open" type="button"
-            class="inline-flex justify-center items-center gap-2 rounded-md border border-zinc-600 bg-white/10  px-4 py-2 text-sm font-medium text-zinc-100 shadow-sm hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-accent"
+    <div x-data="dataTableComponent()" class="relative  text-left mb-4 animate__animated animate__fadeInDown  z-50 hidden">
+        <button @click="open = !open" type="button"            class="inline-flex justify-center items-center gap-2 rounded-md border border-zinc-600 bg-white/10  px-4 py-2 text-sm font-medium text-zinc-100 shadow-sm hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-accent"
             aria-haspopup="true" :aria-expanded="open.toString()">
             {{ __('Select Columns') }}
             <svg :class="{ 'rotate-180': open, 'rotate-0': !open }" class="h-5 w-5 transition-transform duration-200"
@@ -21,7 +20,7 @@
                 <label class="flex items-center space-x-2 cursor-pointer select-none mb-2">
                     <input type="checkbox" :value="key" :checked="visibleColumns.includes(key)"
                         @change="toggleColumn(key)"
-                        class="form-checkbox h-4 w-4 text-accent  bg-accent transition duration-150 ease-in-out" />
+                        class="form-checkbox h-4 w-4 dark:text-accent text-zinc-600 bg-accent transition duration-150 ease-in-out" />
                     <span x-text="label"></span>
                 </label>
             </template>
@@ -178,8 +177,8 @@
                                         $params = [];
                                         foreach ($showParams as $routeKey => $modelField) {
                                             $params[$routeKey] = data_get($item, $modelField);
-                                        } 
-  
+                                        }
+
   $modalData = [];
 foreach ($viewFields as $field) {
     if (str_contains($field, '.')) {
@@ -200,7 +199,7 @@ foreach ($viewFields as $field) {
             Visualizar
         </flux:button>
 
-                          
+
                                 @endif
 
                                 {{-- Excluir --}}

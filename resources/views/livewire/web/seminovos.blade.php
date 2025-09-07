@@ -1,7 +1,7 @@
 <div>
     @section('css')
-        <link rel="stylesheet" href="/public/assets/css/seminovos.css">
-        <link rel="stylesheet" href="/public/assets/css/frotas-tarifas.css">
+        <link rel="stylesheet" href="/assets/css/seminovos.css">
+        <link rel="stylesheet" href="/assets/css/frotas-tarifas.css">
     @endsection
     <main>
         <article>
@@ -87,26 +87,39 @@
                 </div>
             </section>
 
-            <!-- LISTA DE SEMINOVOS -->
-            <section class="seminovos-lista">
+
+            <!-- FROTA GRID -->
+            <section class="frota-grid">
                 <div class="container">
-                    <div class="seminovos-grid" x-transition:enter="transition ease-out duration-300"
+                    <div class="grid-header">
+                        <h2 class="section-title">Escolha seu Veículo</h2>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid">
+                                <ion-icon name="grid-outline"></ion-icon>
+                            </button>
+                            <button class="view-btn" data-view="list">
+                                <ion-icon name="list-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div   x-transition:enter="transition ease-out duration-300"
                         x-transition:enter-start="opacity-0 transform scale-95"
                         x-transition:enter-end="opacity-100 transform scale-100"
                         x-transition:leave="transition ease-in duration-200"
                         x-transition:leave-start="opacity-100 transform scale-100"
-                        x-transition:leave-end="opacity-0 transform scale-95">
+                        x-transition:leave-end="opacity-0 transform scale-95" class="vehicles-grid" id="vehicles-container">
                         @forelse ($cars as $index => $car)
+
+                                        <!-- Informações do carro -->
+                                        @php
+                                            $features = is_array($car->features)
+                                                ? $car->features
+                                                : json_decode($car->features, true);
+                                        @endphp
                             <div wire:key="car-{{ $car->id }}" x-data="{ visible: false }" x-init="setTimeout(() => visible = true, {{ $index * 100 }})"
-                                :class="visible ? 'fade-up show seminovo-card' : 'fade-up seminovo-card'"
-                                data-image="{{ $car->main_image }}" data-title="{{ $car->name }}"
-                                data-specs="{{ $car->espaco }} | {{ $car->tipo ?? 'Não informado' }}"
-                                data-daily="{{ $car->price['Diária'] ?? 'Consulte' }}"
-                                data-weekly="{{ $car->price['Semanal'] ?? 'Consulte' }}"
-                                data-biweekly="{{ $car->price['Quinzenal'] ?? 'Consulte' }}"
-                                data-monthly="{{ $car->price['Mensal'] ?? 'Consulte' }}">
-                                <div class="card-banner">
-                                    <!-- Imagem principal -->
+                                :class="visible ? 'fade-up show vehicle-card' : 'fade-up vehicle-card'"
+                                data-category="{{ ucfirst($features['categoria']) ?? 'Não informado' }}">
+                                <div class="card-image">
                                     @php
                                         $images = is_array($car->images)
                                             ? $car->images
@@ -114,61 +127,34 @@
                                     @endphp
                                     <img src="{{ $car->main_image }}" alt="{{ $car->name }}">
 
-                                    <div class="card-badge">{{ $car->year ?? '-' }}</div> 
+
                                 </div>
-
                                 <div class="card-content">
-                                    <div class="card-header">
-                                        <h3 class="card-title">{{ $car->name }}</h3>
+                                    <h3 class="card-title">{{ $car->name }}</h3>
+                                    <div class="card-specs">
 
-                                        <!-- Preço escolhido -->
+                                        <span><ion-icon name="people-outline"></ion-icon>{{ $car->espaco }}</span>
+                                        <span><ion-icon
+                                                name="speedometer-outline"></ion-icon>{{ ucfirst($features['categoria']) ?? 'Não informado' }}</span>
+                                        <span><ion-icon
+                                                name="leaf-outline"></ion-icon>{{ ucfirst($features['tipo']) ?? 'Não informado' }}</span>
+                                    </div>
+                                    <div class="card-price">
+                                        <span class="price-label">A partir de</span> <!-- Preço escolhido -->
                                         @php
                                             $prices = is_array($car->price)
                                                 ? $car->price
                                                 : json_decode($car->price, true);
-                                            $priceValue = $prices[$precoTipo] ?? null;
+                                            $priceValue = $prices['Diária'] ?? null;
                                         @endphp
-                                        <div class="card-price">
-                                            @if ($priceValue)
-                                                R$ {{ number_format($priceValue, 2, ',', '.') }}
-                                            @else
-                                                Consulte
-                                            @endif
-                                        </div>
+                                        @if ($priceValue)
+                                            <span class="card-price-value">R$
+                                                {{ number_format($priceValue, 2, ',', '.') }}<small>/dia</small></span>
+                                        @else
+                                            Consulte
+                                        @endif
                                     </div>
-
-                                    <!-- Informações do carro -->
-                                    @php
-                                        $features = is_array($car->features)
-                                            ? $car->features
-                                            : json_decode($car->features, true);
-                                    @endphp
-                                    <div class="card-info">
-                                        <div class="info-item">
-                                            <ion-icon name="people-outline"></ion-icon>
-                                            <span>{{ $car->espaco }}</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <ion-icon name="car-outline"></ion-icon>
-                                            <span>{{ ucfirst($features['categoria']) ?? 'Não informado' }}</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <ion-icon name="flash-outline"></ion-icon>
-                                            <span>{{ $features['tipo'] ?? '-' }}</span>
-                                        </div>
-                                    
-                                    </div>
-
-                                    <div class="card-actions">
-                                        <button class="btn-valores">
-                                            <ion-icon name="pricetag-outline"></ion-icon>
-                                            Ver Valores
-                                        </button>
-                                        <button class="btn-contato">
-                                            <ion-icon name="call-outline"></ion-icon>
-                                            Contato
-                                        </button>
-                                    </div>
+                                    <a href="{{ route('reserva') }}" class="btn-reserve">Reservar Agora</a>
                                 </div>
                             </div>
 

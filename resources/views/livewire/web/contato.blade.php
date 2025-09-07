@@ -1,7 +1,7 @@
 <div>
 
     @section('css')
-        <link rel="stylesheet" href="/public/assets/css/contato.css"> 
+        <link rel="stylesheet" href="/assets/css/contato.css">
     @endsection
   <main>
     <article>
@@ -35,11 +35,11 @@
               </div>
               <h3 class="card-title">Telefone</h3>
               <div class="card-info">
-                <p><strong>Matriz:</strong> (11) 3456-7890</p>
-                <p><strong>WhatsApp:</strong> (11) 99999-8888</p>
-                <p><strong>Emergência 24h:</strong> (11) 98765-4321</p>
+                <p><strong>Botafogo RJ:</strong>  (21) 2541-3045</p>
+                <p><strong>Copacabana - RJ:</strong> (21) 3624-3045</p>
+                <p><strong>Niterói -RJ:</strong> (21) 3587-7562</p>
               </div>
-              <a href="tel:+551134567890" class="btn-contato">
+              <a href="tel:+552125413045" class="btn-contato">
                 <ion-icon name="call-outline"></ion-icon>
                 Ligar Agora
               </a>
@@ -67,15 +67,12 @@
               </div>
               <h3 class="card-title">Endereço</h3>
               <div class="card-info">
-                <p><strong>Matriz:</strong></p>
-                <p>Rua das Flores, 123</p>
-                <p>Centro - São Paulo/SP</p>
-                <p>CEP: 01234-567</p>
+                <p class="text-loc"><strong>Botafogo - RJ:</strong>  <a href="https://maps.app.goo.gl/NGDzLqiwvsdVbGtg8">Ver Localização</a></p>
+
+                <p class="text-loc"><strong>Copacabana - RJ:</strong>  <a href="https://maps.app.goo.gl/qvg3xBtgyvwKjiFH7">Ver Localização</a></p>
+                <p class="text-loc"><strong>Niterói - RJ:</strong>  <a href="https://maps.app.goo.gl/TzVXLS5tZzJUMv2x8">Ver Localização</a></p>
               </div>
-              <a href="https://maps.google.com" target="_blank" class="btn-contato">
-                <ion-icon name="navigate-outline"></ion-icon>
-                Ver no Mapa
-              </a>
+
             </div>
 
             <div class="contato-card">
@@ -153,16 +150,16 @@
               <div class="contact-info-card">
                 <h3>
                   <ion-icon name="call-outline"></ion-icon>
-                  Contato Direto
+                  Contato Matriz
                 </h3>
                 <ul class="contact-info-list">
                   <li>
                     <ion-icon name="call"></ion-icon>
-                    (11) 3456-7890
+                    (21) 2541-3045
                   </li>
                   <li>
                     <ion-icon name="logo-whatsapp"></ion-icon>
-                    (11) 99999-8888
+                    (21) 2541-3045
                   </li>
                   <li>
                     <ion-icon name="mail"></ion-icon>
@@ -170,7 +167,7 @@
                   </li>
                   <li>
                     <ion-icon name="location"></ion-icon>
-                    Rua das Flores, 123 - Centro
+                    Rua da Passagem, 74 - Botafogo - RJ
                   </li>
                 </ul>
               </div>
@@ -179,23 +176,8 @@
         </div>
       </section>
 
-    </article>
-  </main>
 
 
-  <!-- MAPA -->
-  <section class="mapa-section">
-    <div class="container">
-      <h2 class="section-title">Nossa Localização</h2>
-      <div class="mapa-container">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975!2d-46.6333824!3d-23.5505199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzAxLjkiUyA0NsKwMzgnMDAuMiJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
-          width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </div>
-  </section>
 
   <!-- FAQ -->
   <section class="faq-section">

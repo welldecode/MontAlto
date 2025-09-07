@@ -6,7 +6,7 @@
 </head>
 
 <body class="min-h-screen bg-white dark:bg-zinc-800">
- 
+
 
 
     <!--
@@ -19,7 +19,7 @@
             <div class="overlay" data-overlay></div>
 
             <a href="#" class="logo">
-                <img src="/public/assets/images/logo.png" class="w-135" alt="Montalvo Logo">
+                <img src="/assets/images/logo.png" class="w-135" alt="Montalvo Logo">
             </a>
 
             <nav class="navbar" data-navbar>
@@ -74,7 +74,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <img src="/public/assets/images/logo-light.png" class="w-135" alt="Montalvo Logo">
+                        <img src="/assets/images/logo-light.png" class="w-135" alt="Montalvo Logo">
                     </a>
                     <p class="footer-text">
                         Sua melhor escolha em aluguel de veículos. Qualidade, confiança e excelência em cada viagem.
@@ -95,21 +95,20 @@
                     <li>
                         <p class="footer-list-title">Contato</p>
                     </li>
-                    <li><a href="tel:+5511999999999" class="footer-link">11 99999-9999</a></li>
+                    <li><a href="tel:+5521970339171" class="footer-link">21 97033-9171</a></li>
                     <li><a href="mailto:contato@montalvo.com.br" class="footer-link">contato@montalvo.com.br</a></li>
                 </ul>
             </div>
- 
+
         </div>
             <div class="footer-bottom">
-                <div class="container footer-flex"> 
+                <div class="container footer-flex">
                 <ul class="social-list">
                     <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
                     <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
-                    <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
                 </ul>
                 <p class="copyright">
-                    &copy; 2024 <a href="#">Montalvo</a>. Todos os direitos reservados.
+                    &copy; 2025 <a href="#">Montalvo</a>. Todos os direitos reservados.
                 </p>
                 </div>
             </div>

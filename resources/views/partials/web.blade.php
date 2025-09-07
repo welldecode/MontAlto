@@ -15,6 +15,6 @@
 <link
     href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Onest:wght@400;500;700&display=swap"
     rel="stylesheet">
-<link rel="stylesheet" href="/public/assets/css/style.css?<?php echo time(); ?>">
-<script type="module" src="/public/assets/js/app.js?<?php echo time(); ?>"></script>
+<link rel="stylesheet" href="/assets/css/style.css?<?php echo time(); ?>">
+<script type="module" src="/assets/js/app.js?<?php echo time(); ?>"></script>
 @yield('css')

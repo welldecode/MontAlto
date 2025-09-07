@@ -1,7 +1,7 @@
 <div>
 
     @section('css')
-        <link rel="stylesheet" href="/public/assets/css/quem-somos.css">
+        <link rel="stylesheet" href="/assets/css/quem-somos.css">
     @endsection
     <main>
         <article>
@@ -25,10 +25,10 @@
                         <div class="info-text">
                             <h2 class="section-title">Sua Mobilidade, Nossa Especialidade</h2>
                             <p>A <strong>Montalvo Locadora</strong> oferece a maior variedade de veículos para todas as
-                                suas necessidades. Desde carros econômicos para o dia a dia até SUVs premium para
+                                suas necessidades.<br> Desde carros econômicos para o dia a dia até SUVs premium para
                                 viagens especiais.</p>
                             <p>Com <strong>mais de 500 veículos</strong> em nossa frota, garantimos que você encontre o
-                                carro perfeito para cada ocasião. Todos os nossos veículos passam por rigorosa
+                                carro perfeito para cada ocasião. <br>Todos os nossos veículos passam por rigorosa
                                 manutenção e são renovados constantemente.</p>
                             <div class="features-grid">
                                 <div class="feature-item">
@@ -110,25 +110,22 @@
                             <h3 class="card-title">Locação Diária</h3>
                             <p class="card-text">Veículos para uso diário, fins de semana e viagens curtas com total
                                 flexibilidade e comodidade.</p>
-                            <a href="{{ route('seminovos') }}" class="card-link">Saiba mais</a>
                         </div>
                         <div class="get-start-card">
                             <div class="card-icon">
                                 <ion-icon name="calendar-outline"></ion-icon>
                             </div>
-                            <h3 class="card-title">Locação Mensal</h3>
+                            <h3 class="card-title">Locação Semanal</h3>
                             <p class="card-text">Soluções flexíveis para locações de médio e longo prazo com condições
                                 especiais.</p>
-                            <a href="{{ route('seminovos') }}" class="card-link">Saiba mais</a>
                         </div>
                         <div class="get-start-card">
                             <div class="card-icon">
                                 <ion-icon name="briefcase-outline"></ion-icon>
                             </div>
-                            <h3 class="card-title">Frota Corporativa</h3>
+                            <h3 class="card-title">Frota Quinzenal</h3>
                             <p class="card-text">Gestão completa de frotas para empresas de todos os portes com
                                 atendimento personalizado.</p>
-                            <a href="{{ route('contato') }}" class="card-link">Saiba mais</a>
                         </div>
                         <div class="get-start-card">
                             <div class="card-icon">
@@ -137,8 +134,16 @@
                             <h3 class="card-title">Seguro Total</h3>
                             <p class="card-text">Cobertura completa para sua tranquilidade e segurança em todas as
                                 locações.</p>
-                            <a href="{{ route('contato') }}" class="card-link">Saiba mais</a>
                         </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="cta-buttons">
+
+                        <a href="{{ route('contato') }}" class="btn-secondary">
+                             Saiba Mais
+                        </a>
                     </div>
                 </div>
             </section>
